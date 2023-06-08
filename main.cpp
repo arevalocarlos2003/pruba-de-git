@@ -1,20 +1,32 @@
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
 int main(){
-  //cambio en rama carlos hecho por carlos
-  int array[10];
-  
-  cout << "Ingrese datos \n";
-  for (int i=0; i<10; i++) {
-    cin >> array[i];
+  fstream Archivo;
+
+  Archivo.open("votos-fmln.txt", ios::in);
+  string line;
+  if (Archivo.is_open()){
+    getline(Archivo, line);
+    cout << line << endl;
+    Archivo.close();
   }
 
-  for (int i = 0; i < 10; i++){
-    cout << array[i];
+  Archivo.open("votos-fmln.txt", ios::out);
+  int votos = stoi(line);
+  if (Archivo.is_open()){
+    votos++;
+    Archivo << votos;
+    Archivo.close();
   }
-  
-  cout << "jaja la puso";
+
+  Archivo.open("votos-fmln.txt", ios::in);
+  if (Archivo.is_open()){
+    getline(Archivo, line);
+    cout << line << endl;
+    Archivo.close();
+  }
   return 0;
 }
