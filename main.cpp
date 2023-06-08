@@ -14,5 +14,7 @@ int main(){
   for (int i = 0; i < 10; i++){
     cout << array[i];
   }
+  
+  cout << "jaja la puso";
   return 0;
 }
