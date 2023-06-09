@@ -1,32 +1,10 @@
-#include <iostream>
-#include <fstream>
+#include "Menu.hpp"
+#include "Identificaciones.hpp"
+#include "Votos.hpp"
 
 using namespace std;
 
-int main(){
-  fstream Archivo;
-
-  Archivo.open("votos-fmln.txt", ios::in);
-  string line;
-  if (Archivo.is_open()){
-    getline(Archivo, line);
-    cout << line << endl;
-    Archivo.close();
-  }
-
-  Archivo.open("votos-fmln.txt", ios::out);
-  int votos = stoi(line);
-  if (Archivo.is_open()){
-    votos++;
-    Archivo << votos;
-    Archivo.close();
-  }
-
-  Archivo.open("votos-fmln.txt", ios::in);
-  if (Archivo.is_open()){
-    getline(Archivo, line);
-    cout << line << endl;
-    Archivo.close();
-  }
+int main (){
+  MenuPrincipal();
   return 0;
 }
