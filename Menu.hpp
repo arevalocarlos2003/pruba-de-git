@@ -66,18 +66,5 @@ void MenuGen(){
 }
 
 void MostrarCandidatos(){
-  cout << "candidato 1 [1]" << endl
-       << "candidato 2 [2]" << endl;
-
-  int opcion = 0;
-
-  switch (opcion){
-    case 1:
-      //candidato 1
-      //VotarCandidato1();
-      break;
-    case 2:
-      //candidato 2
-      break;
-  }
+  
 }

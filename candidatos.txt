@@ -1,0 +1,56 @@
+01 - Ana González - Arena           |
+01 - Pedro Hernández - FMLN         |
+01 - Luisa Martínez - GANA          |
+01 - Carlos López - Nuevas Ideas    |
+02 - María Rodríguez - Arena        |
+02 - José Sánchez - FMLN            |
+02 - Gabriela Pérez - GANA          |
+02 - Manuel García - Nuevas Ideas   |
+03 - Juan Castro - Arena            |
+03 - Laura Méndez - FMLN            |
+03 - Andrés Navarro - GANA          |
+03 - Sofía Torres - Nuevas Ideas    |
+04 - Carolina Morales - Arena       |
+04 - Roberto Ruiz - FMLN            |
+04 - Ana García - GANA              |
+04 - David Ramírez - Nuevas Ideas   |
+05 - Diego Hernández - Arena        |
+05 - Valeria López - FMLN           |
+05 - Daniel Sánchez - GANA          |
+05 - Ana Ramírez - Nuevas Ideas     |
+06 - Marcela Flores - Arena         |
+06 - Manuel González - FMLN         |
+06 - María Torres - GANA            |
+06 - Jorge Sánchez - Nuevas Ideas   |
+07 - Andrés Méndez - Arena          |
+07 - Alejandra Castro - FMLN        |
+07 - Carlos Martínez - GANA         |
+07 - Gabriela Ramírez - Nuevas Ideas|
+08 - Laura Díaz - Arena             |
+08 - Juan López - FMLN              |
+08 - Sofía Pérez - GANA             |
+08 - Carlos García - Nuevas Ideas   |
+09 - Pedro Torres - Arena           |
+09 - Carolina Martínez - FMLN       |
+09 - Manuel Sánchez - GANA          |
+09 - Ana Ramírez - Nuevas Ideas     |
+10 - Alejandra Hernández - Arena    |
+10 - Roberto López - FMLN           |
+10 - Gabriela Sánchez - GANA        |
+10 - David García - Nuevas Ideas    |
+11 - Eduardo Ramírez - Arena        |
+11 - Valentina González - FMLN      |
+11 - José Torres - GANA             |
+11 - Andrea Martínez - Nuevas Ideas |
+12 - Sofía Castro - Arena           |
+12 - Carlos López - FMLN            |
+12 - Laura Sánchez - GANA           |
+12 - Manuel Ramírez - Nuevas Ideas  |
+13 - Fernando González - Arena      |
+13 - Gabriela López - FMLN          |
+13 - Juan Sánchez - GANA            |
+13 - Alejandra García - Nuevas Ideas|
+14 - Carolina Ramírez - Arena       |
+14 - Roberto Martínez - FMLN        |
+14 - María Pérez - GANA             |
+14 - José Sánchez - Nuevas Ideas    |
