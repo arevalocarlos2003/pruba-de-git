@@ -1,0 +1,56 @@
+01 |1 |01       | Ana González - Arena           |
+01 |2 |02       | Pedro Hernández - FMLN         |
+01 |3 |03       | Luisa Martínez - GANA          |
+01 |4 |04       | Carlos López - Nuevas Ideas    |
+02 |1 |05       | María Rodríguez - Arena        |
+02 |2 |06       | José Sánchez - FMLN            |
+02 |3 |07       | Gabriela Pérez - GANA          |
+02 |4 |08       | Manuel García - Nuevas Ideas   |
+03 |1 |09       | Juan Castro - Arena            |
+03 |2 |10       | Laura Méndez - FMLN            |
+03 |3 |11       | Andrés Navarro - GANA          |
+03 |4 |12       | Sofía Torres - Nuevas Ideas    |
+04 |1 |13       | Carolina Morales - Arena       |
+04 |2 |14       | Roberto Ruiz - FMLN            |
+04 |3 |15       | Ana García - GANA              |
+04 |4 |16       | David Ramírez - Nuevas Ideas   |
+05 |1 |17       | Diego Hernández - Arena        |
+05 |2 |18       | Valeria López - FMLN           |
+05 |3 |19       | Daniel Sánchez - GANA          |
+05 |4 |20       | Ana Ramírez - Nuevas Ideas     |
+06 |1 |21       | Marcela Flores - Arena         |
+06 |2 |22       | Manuel González - FMLN         |
+06 |3 |23       | María Torres - GANA            |
+06 |4 |24       | Jorge Sánchez - Nuevas Ideas   |
+07 |1 |25       | Andrés Méndez - Arena          |
+07 |2 |26       | Alejandra Castro - FMLN        |
+07 |3 |27       | Carlos Martínez - GANA         |
+07 |4 |28       | Gabriela Ramírez - Nuevas Ideas|
+08 |1 |29       | Laura Díaz - Arena             |
+08 |2 |30       | Juan López - FMLN              |
+08 |3 |31       | Sofía Pérez - GANA             |
+08 |4 |32       | Carlos García - Nuevas Ideas   |
+09 |1 |33       | Pedro Torres - Arena           |
+09 |2 |34       | Carolina Martínez - FMLN       |
+09 |3 |35       | Manuel Sánchez - GANA          |
+09 |4 |36       | Ana Ramírez - Nuevas Ideas     |
+10 |1 |37       | Alejandra Hernández - Arena    |
+10 |2 |38       | Roberto López - FMLN           |
+10 |3 |39       | Gabriela Sánchez - GANA        |
+10 |4 |40       | David García - Nuevas Ideas    |
+11 |1 |41       | Eduardo Ramírez - Arena        |
+11 |2 |42       | Valentina González - FMLN      |
+11 |3 |43       | José Torres - GANA             |
+11 |4 |44       | Andrea Martínez - Nuevas Ideas |
+12 |1 |45       | Sofía Castro - Arena           |
+12 |2 |46       | Carlos López - FMLN            |
+12 |3 |47       | Laura Sánchez - GANA           |
+12 |4 |48       | Manuel Ramírez - Nuevas Ideas  |
+13 |1 |49       | Fernando González - Arena      |
+13 |2 |50       | Gabriela López - FMLN          |
+13 |3 |51       | Juan Sánchez - GANA            |
+13 |4 |52       | Alejandra García - Nuevas Ideas|
+14 |1 |53       | Carolina Ramírez - Arena       |
+14 |2 |54       | Roberto Martínez - FMLN        |
+14 |3 |55       | María Pérez - GANA             |
+14 |4 |56       | José Sánchez - Nuevas Ideas    |
