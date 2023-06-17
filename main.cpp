@@ -1,5 +1,6 @@
 #include <iostream>
 #include "menu.hpp"
+#include "DUI.hpp"
 
 using namespace std;
 
@@ -13,6 +14,7 @@ int main (){
     MostrarCandidatos(mostrar); */
     //Votar();
     //MostrarResultados();
-    Menu();
+    //Menu();
+    InputDui();
     return 0;
 }
