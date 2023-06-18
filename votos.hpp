@@ -22,24 +22,15 @@ void GuardarEnCandidatos()
   for (int i = 0; i < 56; i++)
   {
     //Por cada vuelta del bucle este mismo leera una linea
-    //omitiendo espacios por lo tanto se usa el struct para captar lo importante
+    //omitiendo espacios por lo tanto se usa el struct para captar la informacion que el struct recibe
     //Esto guarda cada una de las string y valores numericos en la estructura
     //de esta manera podemos acceder a la estructura para cualquier cosa como escribir esos datos en el archivo
-    Votos >> candidatos[i].departamento >> candidatos[i].id >> candidatos[i].nombre >> candidatos[i].apellido >> candidatos[i].votos >> candidatos[i].partido;
-    cout << setfill('-')
-         << "|"
-         << setw(2) << left << candidatos[i].departamento
-         << "|"
-         << setw(2) << left << candidatos[i].id
-         << "|"
-         << setw(15) << left << candidatos[i].nombre
-         << "|"
-         << setw(15) << left << candidatos[i].apellido
-         << "|"
-         << setw(2) << left << candidatos[i].votos
-         << "|"
-         << setw(10) << left << candidatos[i].partido
-         << endl;
+    Votos >> candidatos[i].departamento 
+          >> candidatos[i].id 
+          >> candidatos[i].nombre 
+          >> candidatos[i].apellido 
+          >> candidatos[i].votos 
+          >> candidatos[i].partido;
   }
 }
 
@@ -69,4 +60,42 @@ void ActualizarVotos(int idCandidato)
           << candidatos[i].partido
           << endl;
   }
+}
+
+void MostrarCandidatos(int departamento){
+  GuardarEnCandidatos();
+  for(int i = 0; i < 56; i++){
+    if (candidatos[i].departamento == departamento){
+      cout << setfill('-')
+           << "|"
+           << setw(10) << left << candidatos[i].id
+           << "|"
+           << setw(10) << left << candidatos[i].nombre
+           << "|"
+           << setw(10) << left << candidatos[i].apellido
+           << "|"
+           << setw(10) << left << candidatos[i].partido
+           << "|"
+           << endl;
+    }
+  }
+}
+
+void Votar(int departamentoId){
+  cout << setfill('-')
+       << "|"
+       << setw(10) << left << "id"
+       << "|"
+       << setw(10) << left << "nombre"
+       << "|"
+       << setw(10) << left << "apellido"
+       << "|"
+       << setw(10) << left << "partido"
+       << "|"
+       << endl;
+  MostrarCandidatos(departamentoId);
+  int candidato = 0;
+  cout << "ingrese el numero del candidato por el que quiere votar" << endl;
+  cin >> candidato;
+  ActualizarVotos(candidato);
 }

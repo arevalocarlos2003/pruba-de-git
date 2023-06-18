@@ -1,20 +1,14 @@
 #include <iostream>
-#include "menu.hpp"
+//#include "menu.hpp"
+#include "votos.hpp"
 #include "DUI.hpp"
 
 using namespace std;
 
 int main (){
-    /* int candidato = 0;
-    cout << "Ingrese linea a cambiar: ";
-    cin >> candidato;
-    ActualizarDatos(candidato); */
-    /* string mostrar;
-    cin >> mostrar;
-    MostrarCandidatos(mostrar); */
-    //Votar();
-    //MostrarResultados();
-    //Menu();
-    InputDui();
+    int departamento;
+    cout << "numero de departamento: ";
+    cin >> departamento;
+    Votar(departamento);
     return 0;
 }
