@@ -1,4 +1,87 @@
+# Iomanip controlador de formato
+
+Para que sirve: Es una libreria usada para manipular la salida de un programa de c++, tiene muchas funciones pero las unicas que nos importantes son
+
+## setw()
+
+Esta funcion es la que nos sirve para poder cambiar el ancho de una columna, para usar esta funcion debemos usar un cout o cualquier forma de salida ya sea un archivo o terminal. recomendable escribir left luego de setw() para que se vea más presentable.
+
+entre los parentesis le pasamos el tamaño que tendra la columna en cuestión.
+
+```c++
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int main(){
+    cout << "|"
+         << setw(10) << left << "ID"
+         << "|"
+         << setw(10) << left << "NAME"
+         << "|"
+         << endl;
+
+    cout << "|"
+         << setw(10) << left << "01"
+         << "|"
+         << setw(10) << left << "Sonsonate"
+         << "|"
+         << endl;
+
+    return 0;
+}
+```
+
+salida del codigo
+
+```txt
+|ID        |NAME      |
+|01        |Sonsonate |
+```
+
+## setfill(char)
+Esta funcion sirve para que puedas darle formato a la tabla esto simplemente agregando setfill([simbolo cualquiera char])
+
+ejemplo
+
+```c++
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int main(){
+    cout << setfill('-')
+         << "|"
+         << setw(10) << left << "ID"
+         << "|"
+         << setw(10) << left << "NAME"
+         << "|"
+         << endl;
+
+    cout << setfill('.')
+         << "|"
+         << setw(10) << left << "01"
+         << "|"
+         << setw(10) << left << "Sonsonate"
+         << "|"
+         << endl;
+
+    return 0;
+}
+
+```
+
+Como ves esto es util para mostrar datos de una forma más formal y limpia a la vista.
+
+```txt
+|ID--------|NAME------|
+|01........|Sonsonate.|
+```
+
 # Guia de como manejar archivos version 101
+
 
 ## Definicion
 
@@ -8,16 +91,20 @@ El manejo de archivos se maneja con la libreria de cabecera fstream, al incluir 
 
 Para escribir archivos simplemente necesitamos incluir la libreria fstream y iostream y a su vez también definir el namespace std
 ```c++
+
 #include <iostream>
 #include <fstream>
 
 using namespace std;
+
 ```
+
 Luego para poder manejar un archivo debemos crear una "variable" con el tipo de dato fstream
 
 ```c++
 fstream ARCHIVO;
 ```
+
 Despues de lo anterior necesitamos usar el metodo (funcion) de fstream para poder abrir el archivo esta funcion se denomina open y recibe 2 parametros el nombre del archivo y la forma en la que lo abrimos
 
 ```c++
@@ -69,6 +156,7 @@ Mau
 Carlos
 Gabo
 ```
+
 y deseamos mostrarlos por pantalla
 
 para hacer eso usamos el proceso anterior
@@ -84,6 +172,7 @@ if (ARCHIVO.is_open()){
     ARCHIVO.close();
 }
 ```
+
 Lo que hace este código es básicamente Abrir el archivo para lectura y el while se usa ya que el archivo tiene texto en diferentes lineas y queremos mostrar todas 
 
 le pasamos getline() como condicion ya que si getline no tiene entrada o no hay mas lineas hasta ahi para el ciclo
@@ -93,6 +182,7 @@ a getline se le pasan los siguientes parametros
 ```c++
 getline(nombre_de_variable_de_archivo, variable_string_para_guardar_lineas);
 ```
+
 y asi es como leemos el archivo hasta aqui llegaria lo básico en cuanto a como no sobreescribir lo veremos en el repaso
 
 # Convenio de trabajo
