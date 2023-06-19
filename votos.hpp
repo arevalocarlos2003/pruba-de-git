@@ -56,12 +56,17 @@ void ActualizarVotos(int idCandidato)
           << endl;
   }
 }
-
+/* 
+Esta funcion no hace la gran cosa simplemente recorre el array de estructura
+y imprime por pantalla solamente los candidatos para que el usuario vea por 
+quien votar
+*/
 void MostrarCandidatos(int departamento)
 {
   GuardarEnCandidatos();
   for (int i = 0; i < 56; i++)
   {
+    //Esto hace que se muestre unicamente los candidatos de un departamento
     if (candidatos[i].departamento == departamento)
     {
       cout << setfill('-')
@@ -81,6 +86,8 @@ void MostrarCandidatos(int departamento)
 
 void Votar(int departamentoId)
 {
+  // Esto solo hace que se muestre de que va cada columna de datos en mostrar
+  // candidatos
   cout << setfill('-')
        << "|"
        << setw(10) << left << "id"
@@ -92,9 +99,11 @@ void Votar(int departamentoId)
        << setw(10) << left << "partido"
        << "|"
        << endl;
+  //esto llama a la funcion de candidatos
   MostrarCandidatos(departamentoId);
   int candidato = 0;
   cout << "ingrese el numero del candidato por el que quiere votar" << endl;
   cin >> candidato;
+  //Esto actualiza unicamente el numero de votos de el candidato por el que se voto
   ActualizarVotos(candidato);
 }

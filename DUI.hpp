@@ -6,7 +6,7 @@
 using namespace std;
 
 /* Funciones para validacion y busqueda de departamento de votacion */
-
+//Aqui se guarda la info de procedencia de los DUI
 struct Departamentos
 {
     int idDep;
@@ -15,6 +15,7 @@ struct Departamentos
 
 string departamento;
 
+// Esta funcion guarda lo que esta en el archivo departamentos en la estructura
 void GuardarEnDepartamentos()
 {
     fstream DepartamentosF("Dep.txt", ios::in);
@@ -26,16 +27,20 @@ void GuardarEnDepartamentos()
     }
 }
 
+// funciones de validacion
 bool ValidarDUI(string DUI);
 bool ValidarVotacion(string DUI);
 int BuscarDepartamento(string DUI);
 void RegistrarVotante(string DUI);
 
+
+//funcion para ingresar DUI
 void IngresoDui()
 {
     string DUI;
     cout << "ingrese su numero de DUI 8 digitos: ";
     cin >> DUI;
+    // Esto valida si el DUI ya voto y si el DUI es valido en el pais
     if (ValidarDUI(DUI) == true && ValidarVotacion(DUI) != false)
     {
         Votar(BuscarDepartamento(DUI));
@@ -72,7 +77,7 @@ bool ValidarDUI(string DUI)
     }
     return false;
 }
-
+// Esto sirve para no tener que meter manualmente el numero de Departamento en Votar
 int BuscarDepartamento(string DUI)
 {
     GuardarEnDepartamentos();
@@ -112,6 +117,7 @@ bool ValidarVotacion(string DUI)
     return true;
 }
 
+// Esto sirve para guardar en Registro_Votantes.txt
 void RegistrarVotante(string DUI)
 {
     fstream RegistroVotantes("Registro_Votantes.txt", ios::app);
