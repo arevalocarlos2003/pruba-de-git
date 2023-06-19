@@ -6,9 +6,10 @@
 using namespace std;
 
 int main (){
-    int departamento;
+    /* int departamento;
     cout << "numero de departamento: ";
     cin >> departamento;
-    Votar(departamento);
+    Votar(departamento); */
+    IngresoDui();
     return 0;
 }

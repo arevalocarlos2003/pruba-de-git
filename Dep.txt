@@ -1,0 +1,14 @@
+01 Ahuachapan
+02 Cuscatlan
+03 Chalatenango
+04 San Salvador
+05 La Libertad
+06 La Paz
+07 La Union
+08 Morazan
+09 San Miguel
+10 San Vicente
+11 Santa Ana
+12 Usulutan
+13 Cabanias
+14 Sonsonate

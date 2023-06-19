@@ -1,71 +1,119 @@
 #include <iostream>
 #include <fstream>
+#include <iomanip>
 #include <string>
 
 using namespace std;
 
-void ValidarDui(string);
-void ValidarDepartamento(string);
+/* Funciones para validacion y busqueda de departamento de votacion */
 
-void InputDui(){
+struct Departamentos
+{
+    int idDep;
+    string nombreD;
+} departamentos[14];
+
+string departamento;
+
+void GuardarEnDepartamentos()
+{
+    fstream DepartamentosF("Dep.txt", ios::in);
+
+    for (int i = 0; i < 14; i++)
+    {
+        DepartamentosF >> departamentos[i].idDep;
+        getline(DepartamentosF, departamentos[i].nombreD);
+    }
+}
+
+bool ValidarDUI(string DUI);
+bool ValidarVotacion(string DUI);
+int BuscarDepartamento(string DUI);
+void RegistrarVotante(string DUI);
+
+void IngresoDui()
+{
     string DUI;
-    cout << "ingrese su numero de DUI 8 Digitos: " << endl;
+    cout << "ingrese su numero de DUI 8 digitos: ";
     cin >> DUI;
-    ValidarDui(DUI);
+    if (ValidarDUI(DUI) == true && ValidarVotacion(DUI) != false)
+    {
+        Votar(BuscarDepartamento(DUI));
+        RegistrarVotante(DUI);
+    }
+    else if (ValidarVotacion(DUI) == false)
+    {
+        cout << "Usted ya ha votado anteriormente" << endl;
+    }
+    else
+    {
+        cout << "DUI no valido deben ser 8 digitos y los ultimos dos tienen que ser menores que 14" << endl;
+    }
 }
 
-void ValidarDui(string DUI){
-    int duiSize = DUI.size();
-    char digitos[2] = {DUI[duiSize-2], DUI[duiSize-1]};
-    string digitosDepartamento = digitos;
+/*
+    Esta funcion valida tanto que el numero de DUI tenga 8 digitos como que este mismo sea
+    valido dentro del numero de departamentos por lo tanto solo acepta numeros que sean desde
+    01 hasta 14
+ */
 
-    if(duiSize > 8 || duiSize < 8 || stoi(digitosDepartamento) > 14){
-        cout << "Su DUI tiene mas de 8 digitos o los ultimos digitos\nno coinciden con ningun departamento del pais";
-        InputDui();
+bool ValidarDUI(string DUI)
+{
+    string ultimosDigitos;
+    // agarra los ultimos numeros para compararlos
+    int size = DUI.size();
+    ultimosDigitos.push_back(DUI[size - 2]);
+    ultimosDigitos.push_back(DUI[size - 1]);
+
+    // Se convierte a int con la funcion stoi || string to int
+    if (DUI.size() == 8 && stoi(ultimosDigitos) <= 14)
+    {
+        return true;
     }
-
-    fstream RegistroDui;
-    RegistroDui.open("Registro_Votantes.txt", ios::in);
-    string votantes;
-    
-    if(RegistroDui.fail()){
-        RegistroDui.open("Registro_Votantes.txt", ios::out);
-        RegistroDui.close();
-
-        RegistroDui.open("Registro_Votantes.txt", ios::in);
-        if(RegistroDui.is_open()){
-            while(getline(RegistroDui, votantes)){
-            if(DUI == votantes){
-                cout << "Usted ha votado anteriormente..." << endl;
-            }
-        }
-        }
-    }else{
-        while(getline(RegistroDui, votantes)){
-            if(DUI == votantes){
-                cout << "Usted ha votado anteriormente..." << endl;
-            }
-        }
-    }
-    /* if (RegistroDui.is_open()){
-        
-    } */
-    ValidarDepartamento(digitos);
-    //cout << stoi(digitos) + 1 << endl;
-
+    return false;
 }
 
-void ValidarDepartamento(string digitosDepartamento){
-    fstream Departamentos;
-    Departamentos.open("Departamentos.txt", ios::in);
-    string idDep;
-    string dep;
-    if (Departamentos.is_open()){
-        while(getline(Departamentos, idDep)){
-            if(idDep[0] == digitosDepartamento[0] && idDep[1] == digitosDepartamento[1]){
-                dep = idDep.substr(2, idDep.size() - 1);
-                cout << "Su departamento correspondiente es: " << dep << endl;
+int BuscarDepartamento(string DUI)
+{
+    GuardarEnDepartamentos();
+    string ultimosDigitos;
+    // agarra los ultimos numeros para compararlos
+    ultimosDigitos.push_back(DUI[6]);
+    ultimosDigitos.push_back(DUI[7]);
+    // cout << numeroDepartamento;
+    for (int i = 0; i < 14; i++)
+    {
+        if (departamentos[i].idDep == stoi(ultimosDigitos))
+        {
+            departamento = departamentos[i].nombreD;
+            return departamentos[i].idDep;
+        }
+    }
+    return 1;
+}
+
+/* Funciones para validacion de votacion
+   Solo valida si las personas votaron anteriormente
+*/
+bool ValidarVotacion(string DUI)
+{
+    fstream RegistroVotantes("Registro_Votantes.txt", ios::in);
+    string DUIActual;
+    if (RegistroVotantes.is_open())
+    {
+        while (getline(RegistroVotantes, DUIActual))
+        {
+            if (DUI == DUIActual)
+            {
+                return false;
             }
         }
     }
+    return true;
+}
+
+void RegistrarVotante(string DUI)
+{
+    fstream RegistroVotantes("Registro_Votantes.txt", ios::app);
+    RegistroVotantes << DUI << endl;
 }
