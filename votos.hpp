@@ -64,6 +64,17 @@ quien votar
 void MostrarCandidatos(int departamento)
 {
   GuardarEnCandidatos();
+  cout << setfill('-')
+       << "|"
+       << setw(10) << left << "Id"
+       << "|"
+       << setw(10) << left << "Nombre"
+       << "|"
+       << setw(10) << left << "Apellido"
+       << "|"
+       << setw(10) << left << "Partido"
+       << "|"
+       << endl;
   for (int i = 0; i < 56; i++)
   {
     //Esto hace que se muestre unicamente los candidatos de un departamento
@@ -88,17 +99,6 @@ void Votar(int departamentoId)
 {
   // Esto solo hace que se muestre de que va cada columna de datos en mostrar
   // candidatos
-  cout << setfill('-')
-       << "|"
-       << setw(10) << left << "id"
-       << "|"
-       << setw(10) << left << "nombre"
-       << "|"
-       << setw(10) << left << "apellido"
-       << "|"
-       << setw(10) << left << "partido"
-       << "|"
-       << endl;
   //esto llama a la funcion de candidatos
   MostrarCandidatos(departamentoId);
   int candidato = 0;

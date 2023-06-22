@@ -1,90 +1,145 @@
 #include <iostream>
+#include <iomanip>
+#include "Logo.hpp"
 #include "votos.hpp"
+#include "DUI.hpp"
 
 using namespace std;
 
-int Menu()
+void MenuAdministrador();
+void MenuGeneral();
+
+void MainMenu()
 {
   system("clear");
-  cout << setfill('-')
-       << "|"
-       << setw(8) << left << "opciones"
-       << "|"
-       << setw(20) << left << "Mostrar Resultados"
-       << "|"
-       << setw(20) << left << "Guardar en archivo"
-       << "|"
-       << setw(20) << left << "Votar"
-       << "|"
-       << setw(20) << left << "Salir"
-       << "|"
+  Logo();
+  cout << "Tribunal Supremo Electoral" << endl;
+  cout << "Hacemos que contar papeles suene interesante" << endl;
+  cout << setfill('.')
+       << setw(60 + 3) << left << ""
+       << endl
+       << "."
+       << setw(30) << left << "Opciones Administrador"
+       << "."
+       << setw(30) << right << "[1]"
+       << "."
+       << endl
+       << "."
+       << setw(30) << left << "Opciones Generales"
+       << "."
+       << setw(30) << right << "[2]"
+       << "."
+       << endl
+       << "."
+       << setw(30) << left << "Salir"
+       << "."
+       << setw(30) << right << "[3]"
+       << "."
        << endl;
+  int option;
+  cout << right << ">";
+  cin >> option;
 
-  cout << setfill('-')
-       << "|"
-       << setw(8) << left << "        "
-       << "|"
-       << setw(20) << left << "Opcion[1]"
-       << "|"
-       << setw(20) << left << "Opcion[2]"
-       << "|"
-       << setw(20) << left << "Opcion[3]"
-       << "|"
-       << setw(20) << left << "Opcion[4]"
-       << "|"
-       << endl;
-
-  int opcion = 0;
-
-  cout << endl
-       << "Ingrese el numero de la opcion que desea: ";
-  cin >> opcion;
-
-  switch (opcion)
+  switch (option)
   {
   case 1:
     system("clear");
-    MostrarResultados();
-    char tecla;
-    cout << "Presione <Enter> para continuar..." << endl;
-    cin >> tecla;
-    Menu();
+    cout << "Menu Administrador" << endl;
+    MenuAdministrador();
     break;
   case 2:
     system("clear");
+    MenuGeneral();
+    break;
+  default:
+    cout << "Cerrando..." << endl;
+    break;
+  }
+}
 
-    int opcionArchivo;
+void MenuAdministrador()
+{
+  system("clear");
+  cout << setfill('.')
+       << setw(30) << left << "Mostrar Resultados"
+       << setw(30) << right << "[1]"
+       << endl
+       << setw(30) << left << "Mostrar Informacion DUI"
+       << setw(30) << right << "[2]"
+       << endl
+       << setw(30) << left << "Generar Registro de DUI's"
+       << setw(30) << right << "[3]"
+       << endl
+       << setw(30) << left << "Volver al menu anterior <-"
+       << setw(30) << right << "[4]"
+       << endl;
+  int option;
+  cout << ":";
+  cin >> option;
+  switch (option)
+  {
+  case 1:
+    cout << "mostrar resultados" << endl;
+    break;
+  case 2:
+    cout << "mostrar info" << endl;
+    break;
+  case 3:
+    cout << "generar info" << endl;
+    break;
+  default:
+    MainMenu();
+    break;
+  }
+}
 
-    cout << "Desea guardar los registros en un archivo?" << endl
-         << "1--si" << endl
-         << "2--no" << endl
-         << "::";
-    cin >> opcionArchivo;
-
-    if (opcionArchivo == 1)
-    {
-      string nombre;
-      cout << "ingrese el nombre del archivo: ";
-      cin >> nombre;
-      GuardarEnArchivo(nombre);
-      break;
-    }
-    else
-    {
-      Menu();
-      break;
-    }
-
+void MenuGeneral()
+{
+  system("clear");
+  cout << setfill('.')
+       << setw(30) << left << "Buscar Departamento"
+       << setw(30) << right << "[1]"
+       << endl
+       << setw(30) << left << "Mostrar Candidatos"
+       << setw(30) << right << "[2]"
+       << endl
+       << setw(30) << left << "Votar"
+       << setw(30) << right << "[3]"
+       << endl
+       << setw(30) << left << "Volver al menu anterior <-"
+       << setw(30) << right << "[4]"
+       << endl;
+  int option;
+  cout << ":";
+  cin >> option;
+  string aux;
+  switch (option)
+  {
+  case 1:
+    system("clear");
+    cout << "Buscar Departamento" << endl;
+    BuscarNombreDepartamento();
+    cout << "Escriba [ok] para continuar..." << endl;
+    cin >> aux;
+    MainMenu();
+    break;
+  case 2:
+    system("clear");
+    cout << "Mostrar Candidatos" << endl;
+    MostrarCandidatos(BuscarNombreDepartamento());
+    cout << "Escriba [ok] para continuar..." << endl;
+    cin >> aux;
+    MainMenu();
     break;
   case 3:
     system("clear");
-    Votar();
-    Menu();
+    Votar(BuscarNombreDepartamento());
+    cout << "Escriba [ok] para continuar..." << endl;
+    cin >> aux;
+    MainMenu();
     break;
-  case 4:
-    system("clear");
-    return 0;
+  default:
+    MainMenu();
     break;
   }
-  return 0;
 }
