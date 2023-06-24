@@ -9,6 +9,8 @@ using namespace std;
 void MenuAdministrador();
 void MenuGeneral();
 
+string DUI;
+
 void MainMenu()
 {
   system("clear");
@@ -83,6 +85,7 @@ void MenuAdministrador()
     break;
   case 2:
     cout << "mostrar info" << endl;
+    Mostrarinformacion();
     break;
   case 3:
     cout << "generar info" << endl;
@@ -118,7 +121,9 @@ void MenuGeneral()
   case 1:
     system("clear");
     cout << "Buscar Departamento" << endl;
-    BuscarNombreDepartamento();
+    BuscarDepartamento(IngresoDui());
+
+    cout << "Su departamento es: " << departamento << endl;
     cout << "Escriba [ok] para continuar..." << endl;
     cin >> aux;
     MainMenu();
@@ -126,14 +131,18 @@ void MenuGeneral()
   case 2:
     system("clear");
     cout << "Mostrar Candidatos" << endl;
-    MostrarCandidatos(BuscarNombreDepartamento());
+    MostrarCandidatos(BuscarDepartamento(IngresoDui()));
+
     cout << "Escriba [ok] para continuar..." << endl;
     cin >> aux;
     MainMenu();
     break;
   case 3:
     system("clear");
-    Votar(BuscarNombreDepartamento());
+    DUI = IngresoDui();
+    Votar(BuscarDepartamento(DUI));
+    RegistrarVotante(DUI);
+
     cout << "Escriba [ok] para continuar..." << endl;
     cin >> aux;
     MainMenu();

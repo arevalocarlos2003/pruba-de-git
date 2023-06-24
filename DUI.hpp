@@ -34,18 +34,17 @@ int BuscarDepartamento(string DUI);
 void RegistrarVotante(string DUI);
 
 // funcion para ingresar DUI
-void IngresoDui()
+string IngresoDui()
 {
     string DUI;
     cout << "ingrese su numero de DUI 8 digitos: ";
     cin >> DUI;
     // Esto valida si el DUI ya voto y si el DUI es valido en el pais
-    if (ValidarDUI(DUI) == true && ValidarVotacion(DUI) != false)
+    if (ValidarDUI(DUI) == true && ValidarVotacion(DUI) != true)
     {
-        Votar(BuscarDepartamento(DUI));
-        RegistrarVotante(DUI);
+        return DUI;
     }
-    else if (ValidarVotacion(DUI) == false)
+    else if (ValidarVotacion(DUI) == true)
     {
         cout << "Usted ya ha votado anteriormente" << endl;
     }
@@ -53,6 +52,8 @@ void IngresoDui()
     {
         cout << "DUI no valido deben ser 8 digitos y los ultimos dos tienen que ser menores que 14" << endl;
     }
+
+    return "";
 }
 
 /*
@@ -96,7 +97,38 @@ int BuscarDepartamento(string DUI)
     return 1;
 }
 
-int BuscarNombreDepartamento()
+void Mostrarinformacion(){
+    string estado;
+    string DUI;
+    cout << "ingrese su DUI" << endl;
+    cin >> DUI;
+
+    ValidarDUI(DUI);
+    BuscarDepartamento(DUI);
+
+    if(ValidarVotacion(DUI) == true){
+        estado = "Si";
+    }else{
+        estado = "No";
+    }
+
+    cout << setfill('.')
+         << "|"
+         << setw(20) << left << "Departamento"
+         << "|"
+         << setw(20) << left << "Estado"
+         << "|"
+         << endl;
+    cout << setfill('.')
+         << "|"
+         << setw(20) << left << departamento
+         << "|"
+         << setw(20) << left << estado
+         << "|"
+         << endl;
+}
+
+/* int BuscarNombreDepartamento()
 {
     string DUI;
     cout << "ingrese su numero de DUI: ";
@@ -104,7 +136,7 @@ int BuscarNombreDepartamento()
     BuscarDepartamento(DUI);
     cout << "Su departamento respectivo es :" << departamento << endl;
     return BuscarDepartamento(DUI);
-}
+} */
 
 /* Funciones para validacion de votacion
    Solo valida si las personas votaron anteriormente
@@ -119,11 +151,11 @@ bool ValidarVotacion(string DUI)
         {
             if (DUI == DUIActual)
             {
-                return false;
+                return true;
             }
         }
     }
-    return true;
+    return false;
 }
 
 // Esto sirve para guardar en Registro_Votantes.txt
