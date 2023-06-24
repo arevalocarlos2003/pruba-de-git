@@ -95,7 +95,7 @@ void MostrarCandidatos(int departamento)
   }
 }
 
-void Votar(int departamentoId)
+bool Votar(int departamentoId)
 {
   // Esto solo hace que se muestre de que va cada columna de datos en mostrar
   // candidatos
@@ -108,7 +108,9 @@ void Votar(int departamentoId)
     cin >> candidato;
     // Esto actualiza unicamente el numero de votos de el candidato por el que se voto
     ActualizarVotos(candidato);
+    return true;
   }else{
     cout << "Redirigiendo..." << endl;
+    return false;
   }
 }

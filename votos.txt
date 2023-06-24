@@ -1,7 +1,7 @@
-1 1 Ana Gonzalez 1 Arena
+1 1 Ana Gonzalez 2 Arena
 1 2 Pedro Hernandez 0 FMLN
 1 3 Luisa Martinez 0 GANA
-1 4 Carlos Lopez 0 NI
+1 4 Carlos Lopez 1 NI
 2 5 Maria Rodriguez 0 Arena
 2 6 Jose Sanchez 0 FMLN
 2 7 Gabriela Perez 0 GANA
@@ -33,11 +33,11 @@
 9 33 Pedro Torres 1 Arena
 9 34 Carolina Martinez 0 FMLN
 9 35 Manuel Sanchez 0 GANA
-9 36 Ana Ramirez 2 NI
-10 37 Alejandra Hernandez 5 Arena
+9 36 Ana Ramirez 3 NI
+10 37 Alejandra Hernandez 6 Arena
 10 38 Roberto Lopez 0 FMLN
 10 39 Gabriela Sanchez 0 GANA
-10 40 David Garcia 2 NI
+10 40 David Garcia 3 NI
 11 41 Eduardo Ramirez 0 Arena
 11 42 Valentina Gonzalez 0 FMLN
 11 43 Jose Torres 0 GANA

@@ -140,8 +140,12 @@ void MenuGeneral()
   case 3:
     system("clear");
     DUI = IngresoDui();
-    Votar(BuscarDepartamento(DUI));
-    RegistrarVotante(DUI);
+    if(Votar(BuscarDepartamento(DUI)) == true){
+      RegistrarVotante(DUI);
+    }else{
+      cout << "..." << endl;
+    }
+    
 
     cout << "Escriba [ok] para continuar..." << endl;
     cin >> aux;

@@ -98,8 +98,6 @@ int BuscarDepartamento(string DUI)
         {
             departamento = departamentos[i].nombreD;
             return departamentos[i].idDep;
-        }else{
-            return 0;
         }
     }
     return 0;
