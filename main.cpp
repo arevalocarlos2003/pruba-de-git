@@ -1,7 +1,5 @@
 #include <iostream>
-//#include "menu.hpp"
-#include "votos.hpp"
-#include "DUI.hpp"
+#include "menu.hpp"
 
 using namespace std;
 
