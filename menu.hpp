@@ -14,7 +14,7 @@ string DUI;
 void MainMenu()
 {
   system("clear");
-  Logo();
+  //Logo();
   cout << "Tribunal Supremo Electoral" << endl;
   cout << "Hacemos que contar papeles suene interesante" << endl;
   cout << setfill('.')

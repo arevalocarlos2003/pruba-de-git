@@ -8,6 +8,6 @@ int main (){
     cout << "numero de departamento: ";
     cin >> departamento;
     Votar(departamento); */
-    IngresoDui();
+    MainMenu();
     return 0;
 }
