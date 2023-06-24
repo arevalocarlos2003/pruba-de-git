@@ -20,10 +20,14 @@ void GuardarEnDepartamentos()
 {
     fstream DepartamentosF("Dep.txt", ios::in);
 
-    for (int i = 0; i < 14; i++)
+    if (DepartamentosF.is_open())
     {
-        DepartamentosF >> departamentos[i].idDep;
-        getline(DepartamentosF, departamentos[i].nombreD);
+        for (int i = 0; i < 14; i++)
+        {
+            DepartamentosF >> departamentos[i].idDep;
+            getline(DepartamentosF, departamentos[i].nombreD);
+        }
+        DepartamentosF.close();
     }
 }
 
@@ -47,10 +51,12 @@ string IngresoDui()
     else if (ValidarVotacion(DUI) == true)
     {
         cout << "Usted ya ha votado anteriormente" << endl;
+        return DUI;
     }
     else
     {
         cout << "DUI no valido deben ser 8 digitos y los ultimos dos tienen que ser menores que 14" << endl;
+        return DUI;
     }
 
     return "";
@@ -88,16 +94,19 @@ int BuscarDepartamento(string DUI)
     // cout << numeroDepartamento;
     for (int i = 0; i < 14; i++)
     {
-        if (departamentos[i].idDep == stoi(ultimosDigitos))
+        if (departamentos[i].idDep == stoi(ultimosDigitos) && ValidarVotacion(DUI) == false)
         {
             departamento = departamentos[i].nombreD;
             return departamentos[i].idDep;
+        }else{
+            return 0;
         }
     }
-    return 1;
+    return 0;
 }
 
-void Mostrarinformacion(){
+void Mostrarinformacion()
+{
     string estado;
     string DUI;
     cout << "ingrese su DUI" << endl;
@@ -106,9 +115,12 @@ void Mostrarinformacion(){
     ValidarDUI(DUI);
     BuscarDepartamento(DUI);
 
-    if(ValidarVotacion(DUI) == true){
+    if (ValidarVotacion(DUI) == true)
+    {
         estado = "Si";
-    }else{
+    }
+    else
+    {
         estado = "No";
     }
 
@@ -128,22 +140,11 @@ void Mostrarinformacion(){
          << endl;
 }
 
-/* int BuscarNombreDepartamento()
-{
-    string DUI;
-    cout << "ingrese su numero de DUI: ";
-    cin >> DUI;
-    BuscarDepartamento(DUI);
-    cout << "Su departamento respectivo es :" << departamento << endl;
-    return BuscarDepartamento(DUI);
-} */
-
-/* Funciones para validacion de votacion
-   Solo valida si las personas votaron anteriormente
-*/
 bool ValidarVotacion(string DUI)
 {
-    fstream RegistroVotantes("Registro_Votantes.txt", ios::in);
+    fstream RegistroVotantes;
+    RegistroVotantes.open("Registro_Votantes.txt", ios::in);
+
     string DUIActual;
     if (RegistroVotantes.is_open())
     {
@@ -155,13 +156,18 @@ bool ValidarVotacion(string DUI)
             }
         }
     }
+    RegistroVotantes.close();
+    
     return false;
 }
 
 // Esto sirve para guardar en Registro_Votantes.txt
 void RegistrarVotante(string DUI)
 {
-    fstream RegistroVotantes("Registro_Votantes.txt", ios::app);
-    RegistroVotantes << DUI << endl;
-    RegistroVotantes.close();
+    fstream RegistroVotantes;
+    RegistroVotantes.open("Registro_Votantes.txt", ios::app);
+    if(RegistroVotantes.is_open()){
+        RegistroVotantes << DUI << endl;
+        RegistroVotantes.close();
+    }
 }

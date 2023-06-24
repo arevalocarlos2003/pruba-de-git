@@ -34,10 +34,10 @@
 9 34 Carolina Martinez 0 FMLN
 9 35 Manuel Sanchez 0 GANA
 9 36 Ana Ramirez 2 NI
-10 37 Alejandra Hernandez 4 Arena
+10 37 Alejandra Hernandez 5 Arena
 10 38 Roberto Lopez 0 FMLN
 10 39 Gabriela Sanchez 0 GANA
-10 40 David Garcia 0 NI
+10 40 David Garcia 2 NI
 11 41 Eduardo Ramirez 0 Arena
 11 42 Valentina Gonzalez 0 FMLN
 11 43 Jose Torres 0 GANA
