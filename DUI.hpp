@@ -13,6 +13,8 @@ struct Departamentos
     string nombreD;
 } departamentos[14];
 
+/* la variable departamento se usa como parámetro a usar para las funciones de votos.hpp, por eso es declarada de forma global
+no como variable local de la función */
 string departamento;
 
 // Esta funcion guarda lo que esta en el archivo departamentos en la estructura
